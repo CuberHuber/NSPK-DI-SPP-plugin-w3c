@@ -1,35 +1,27 @@
-# This plugin processes <File | Native | Another> source
+# This plugin processes Native source
 # Link: <link to source website>
 # Author:
 #	Ф.И.О
 #	NSPK DI
 
 # указание уникального имени источника
-SOURCE <source name>
+SOURCE w3c
 
 # Тут указывается имя файла с парсером
 # PARSER <название файла с парсером без расширения>
-PARSER source_parser
+PARSER s3c
 
 # Настройка задачи
 # SETENV <атрибут управления> [<параметры>, ...]
-SETENV LogMode debug
+# SETENV LogMode debug
 
 # Этот параметр нужен, если ты имеешь дело с противным источником.
 # BUS_ADD <название дополнительного потока> <объект / модуль / дополнительный модуль из класса парсера>
-BUS_ADD s_download PARSER/SOURCE_PARSER_CLASS/nasty_download
+# BUS_ADD s_download PARSER/SOURCE_PARSER_CLASS/nasty_download
 
 # Тут указывается класс парсера и метод, который платформа будет вызывать
 # START <название класса парсера> <метод, который должен вернуть список документов>
-START SOURCE_PARSER_CLASS content
-
-
-# Такая конфигурация модулей подходит для "файловых противных источников"
-# ADD <название модуля> [<опциональные параметры>, ...]
-ADD FilterOnlyNewDocumentWithDB
-ADD DownloadDocumentsThroughSeleniumTemp
-ADD ExtractTextFromFile
-ADD UploadDocumentToDB
+START W3C content
 
 # Такая конфигурация модулей подходит для "Нативных источников"
 ADD FilterOnlyNewDocumentWithDB
